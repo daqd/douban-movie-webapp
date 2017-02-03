@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0
+}
+body{
+  margin: 0 auto;
+  padding: 0;
+  max-width: 540px;
+  font-size: 16px;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+a{
+  color:#505050;
+}
+ul li{
+  list-style-type: none;
+}
+#app{
+  margin: 0 auto;
+}
+.mint-tabbar.is-fixed,.mint-header,.is-fixed,.mint-popup{
+    max-width: 540px;
+    margin: 0 auto;
+}
+.mint-tabbar{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/** 1px像素边框 **/
+.onePxLineWrap{
+  position: relative;
+}
+.onePxLine:before{
+    position:absolute;
+    content: "";
+    height:1px;
+    background:#d5d5d5;
+    width:100%;
+    top:0;
+    -webkit-transform:scaleY(.5);
+    -ms-transform:scaleY(.5);
+    -o-transform:scaleY(.5);
+    transform:scaleY(.5);
+}
