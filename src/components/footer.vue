@@ -4,20 +4,20 @@
 
     </div>
     <mt-tabbar fixed>
-      <mt-tab-item id="外卖">
-        <img slot="icon" @click="toNextPage('/home')" src="../assets/images/tab_user_focus.png">
+      <mt-tab-item id="正在热映">
+        <img slot="icon" @click="toNextPage('/hot')" src="../assets/images/hotIcon.png">
         正在热映
       </mt-tab-item>
-      <mt-tab-item id="订单">
-        <img slot="icon" @click="toNextPage('/top250')" src="../assets/images/tab_user_focus.png">
+      <mt-tab-item id="即将上映">
+        <img slot="icon" @click="toNextPage('/coming_soon')" src="../assets/images/coming.png">
+        即将上映
+      </mt-tab-item>
+      <mt-tab-item id="TOP250">
+        <img slot="icon" @click="toNextPage('/top250')" src="../assets/images/top200Icon.png">
       TOP250
       </mt-tab-item>
-      <mt-tab-item id="发现">
-        <img slot="icon" src="../assets/images/tab_user_focus.png">
-        排行榜
-      </mt-tab-item>
       <mt-tab-item id="我的">
-        <img slot="icon" src="../assets/images/tab_user_focus.png">
+        <img slot="icon" @click="toNextPage('/user')" src="../assets/images/user.png">
         我的
       </mt-tab-item>
     </mt-tabbar>

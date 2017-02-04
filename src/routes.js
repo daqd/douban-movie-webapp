@@ -1,15 +1,23 @@
 export default [
   //重定向
   {
-    path: '/', redirect: '/home'
+    path: '/', redirect: '/hot'
   },
   //首页
   {
-    path: '/home',
+    path: '/hot',
     component: resolve => {
             require(['./views/home.vue'], resolve)
         },
-    name:'猫眼电影'
+    name:'豆瓣电影',
+  },
+  //即将上映
+  {
+    path: '/coming_soon',
+    component: resolve => {
+            require(['./views/coming_soon.vue'], resolve)
+        },
+    name:'即将上映'
   },
   //top250
   {
@@ -19,4 +27,19 @@ export default [
         },
     name:'top250'
   },
+  //我的
+  {
+    path: '/user',
+    component: resolve => {
+            require(['./views/user.vue'], resolve)
+        },
+    name:'关于我'
+  },
+  //电影详细信息
+  {
+    path: '/details',
+    component: resolve => {
+            require(['./views/movDetails.vue'], resolve)
+        },
+  }
 ];

@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="hot-movive-list">
-    <div class="movie-item" v-for="item in movData">
+    <div class="movie-item" v-for="item in movData" @click="toShowDetails(item.id)">
       <!-- 电影海报 -->
       <div class="movie-item-pic">
         <img :src="item.images.medium" alt="">
@@ -51,7 +51,7 @@ export default {
     //获取数据
     getCustomers(){
       Indicator.open('加载中...');
-      let apiUrl = this.type=="hot"?'https://api.douban.com/v2/movie/in_theaters':'https://api.douban.com/v2/movie/top250';
+      let apiUrl = this.getApiUrl(this.type);
       console.log(apiUrl);
       this.$http.jsonp(apiUrl).then(
                   function (res) {
@@ -63,6 +63,21 @@ export default {
                       Indicator.close();
                   }
               );
+    },
+    // 显示详细信息
+    toShowDetails(id){
+      this.$router.push({path:'details',query:{mvId: id }});
+    },
+    //获取url
+    getApiUrl(type){
+      switch(type){
+        case 'hot':
+           return 'https://api.douban.com/v2/movie/in_theaters';
+        case 'coming':
+           return 'https://api.douban.com/v2/movie/coming_soon';
+        default:
+          return 'https://api.douban.com/v2/movie/top250';
+      }
     }
   }
 }

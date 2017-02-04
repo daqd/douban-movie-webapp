@@ -1,5 +1,5 @@
 <template lang="html">
-  <movieList type="hot"></movieList>
+    <movieList type="hot"></movieList>
 </template>
 
 <script>

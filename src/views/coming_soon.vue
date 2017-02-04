@@ -1,5 +1,5 @@
 <template lang="html">
-    <movieList type="top250"></movieList>
+  <movieList type="coming"></movieList>
 </template>
 
 <script>
