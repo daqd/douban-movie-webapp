@@ -36,9 +36,12 @@
       </div>
     </div>
     <!-- 电影介绍 -->
-    <div class="movie-summary">
-      <div class="content">
+    <div class="movie-summary" :class="{setAuto:isAuto}">
+      <div class="content" :class="{setAuto:isAuto}">
         {{movData.summary}}
+      </div>
+      <div v-if="!isAuto" class="more" @click="readMore">
+        展开全部
       </div>
     </div>
     <!-- 明星 -->
@@ -72,7 +75,8 @@ export default {
   data(){
     return{
       movData:null,
-      comments:null
+      comments:null,
+      isAuto:false
     }
   },
   created(){
@@ -90,6 +94,7 @@ export default {
       if(!this.$route.query.mvId){
         this.$router.replace({path:'hot'});
       }else{
+        this.$store.dispatch('setMovieSrc',this.$route.query.type); 
         this.getCustomers(this.$route.query.mvId);
       }
     },
@@ -102,6 +107,12 @@ export default {
                   function (res) {
                     // console.log(res.body);
                       this.$data.movData = res.body;
+                      //判断电影介绍内容长度,大约显示110个字符
+                      if(this.$data.movData.summary.length<110){
+                        this.$data.isAuto = true;
+                      }else{
+                        this.$data.isAuto = false;
+                      }
                       Indicator.close();
                   },function (res) {
                       // 处理失败的结果
@@ -109,6 +120,9 @@ export default {
                   }
               );
     },
+    readMore(){
+      this.$data.isAuto = true;
+    }
   }
 }
 </script>
@@ -174,17 +188,26 @@ export default {
   /** 电影介绍 **/
   .movie-summary{
       width: 100%;
-      height: 125px;
-      margin-top: 5px;
+      height: 165px;
+      margin-top: 8px;
       border-bottom: 5px solid #f5f5f5;
       .content{
         width: 95%;
         height: 120px;
         overflow: hidden;
         margin: 0 auto;
-        line-height: 20px;
+        line-height: 25px;
         text-align: justify;
         color: #505050;
+      }
+      .more{
+          width: 100%;
+          height: 30px;
+          margin-top: 5px;
+          color:#ff3535;
+          display: flex;
+          justify-content: center;
+          align-items:center;
       }
   }
 
@@ -249,5 +272,10 @@ export default {
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
     }
+  }
+
+  /** setAuto **/
+  .setAuto{
+    height: auto !important;
   }
 </style>

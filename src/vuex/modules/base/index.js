@@ -10,7 +10,7 @@ const state = {
   nextPath:'',  //被中断的路由路径
   headerTit:'', //当前路由的title
   loginStatus:false,  //是否已登录
-  token:'', //用户的token
+  srcType:'', //电影详细页来源类型
   userName:'', //用户名
   pageChangeStatus:'' //当前路由的切换状态 go/back
 }

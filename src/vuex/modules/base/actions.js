@@ -28,7 +28,7 @@ export const setLoginStatus = ({commit}, loginStatus) => {
   commit('SET_LOGINSTATUS', loginStatus)
 }
 
-//设置token
-export const setToken = ({commit}, token) => {
-  commit('SET_TOKEN', token)
+//设置电影详细页来源
+export const setMovieSrc = ({commit}, src) => {
+  commit('SET_MOVIE_SRC', src)
 }

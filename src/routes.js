@@ -25,7 +25,7 @@ export default [
     component: resolve => {
             require(['./views/top250.vue'], resolve)
         },
-    name:'top250'
+    name:'TOP250'
   },
   //我的
   {

@@ -5,7 +5,7 @@ import {
   HEADER_TIT,
   SET_USERNAME,
   SET_LOGINSTATUS,
-  SET_TOKEN
+  SET_MOVIE_SRC
 
 } from './mutation-types'
 
@@ -35,8 +35,8 @@ const mutations = {
     state.loginStatus = loginStatus
   },
   //设置token
-  [SET_TOKEN] (state, token) {
-    state.token = token
+  [SET_MOVIE_SRC] (state, srcType) {
+    state.srcType = srcType
   },
 
 }

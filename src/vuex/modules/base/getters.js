@@ -5,4 +5,4 @@ export const getPageChangeStatus = state => state.pageChangeStatus //获取被�
 export const getHeaderTit = state => state.headerTit //获取返title
 export const getUserName = state => state.userName //获取title
 export const getLoginStatus = state => state.loginStatus //获取登录状态
-export const getToken= state => state.token //获取token
+export const getSrcType= state => state.srcType //获取电影详细来源
