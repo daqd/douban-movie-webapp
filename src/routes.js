@@ -41,5 +41,6 @@ export default [
     component: resolve => {
             require(['./views/movDetails.vue'], resolve)
         },
+    name:'电影详情'
   }
 ];

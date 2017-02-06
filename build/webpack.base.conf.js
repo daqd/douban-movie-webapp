@@ -26,7 +26,10 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'components': path.resolve(__dirname, '../src/components'),
+      'store':path.resolve(__dirname,'../src/vuex/store'),
+      'getters':path.resolve(__dirname,'../src/vuex/getters'),
+      'actions':path.resolve(__dirname,'../src/vuex/actions'),
     }
   },
   resolveLoader: {

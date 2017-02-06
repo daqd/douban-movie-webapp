@@ -5,7 +5,7 @@ import routes from './routes';
 import Mint from 'mint-ui';
 import resource from 'vue-resource';
 import { sync } from 'vuex-router-sync';
-//import store from 'store';
+import store from 'store';
 //import setWechatTitle from './utils/setWechatTitle';
 
 Vue.use(Mint);
@@ -29,29 +29,23 @@ router.beforeEach((to, from, next) => {
   //判断拦截，是否需要登录
   const pathArr = to.path.split('/');
   const toPath = pathArr[pathArr.length-1];
-  // if(noNeedLoginPage.indexOf(toPath)==-1 && !store.state.base.loginStatus){
-  //   //store.dispatch('setNextPath', to.path);
-  //   next({path:'/login'});
-  // }else{
-  //   next();
-  // }
-  //判断当前登录状态是前进还是后退
+  store.dispatch('setPath', to.path);
   next();
 })
 
 //配置全局钩子，设置返回路径至全局状态管理backpath
-// router.afterEach((to, from) => {
-//   store.dispatch('setBackPath', from.path);
-//   store.dispatch('setHeaderTit', to.name);
-//   //动态设置微信title
-//   // let title = to.name;
-//   // setWechatTitle(title)
-// })
+router.afterEach((to, from) => {
+  store.dispatch('setHeaderTit', to.name);
+  console.log(from.path);
+  //动态设置微信title
+  // let title = to.name;
+  // setWechatTitle(title)
+})
 
-// sync(store, router);
+sync(store, router);
 
 const app = new Vue({
   router,
-  // store,
+  store,
   render: h => h(App),
 }).$mount('#app')
