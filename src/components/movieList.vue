@@ -4,7 +4,7 @@
       <div class="movie-item onePxLine" @click="toShowDetails(item.id)">
         <!-- 电影海报 -->
         <div class="movie-item-pic">
-          <img :src="item.images.medium" alt="">
+          <img :src="item.images.large" alt="">
         </div>
         <!-- 电影基本信息 -->
         <div class="movie-item-info">
@@ -97,6 +97,9 @@ export default {
       margin-left: 10px;
       margin-top: 10px;
       overflow: hidden;
+    }
+    .movie-item-pic img{
+      width: 100%;
     }
 
     .movie-item-info{
