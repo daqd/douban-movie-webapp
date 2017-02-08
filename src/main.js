@@ -17,10 +17,7 @@ Vue.use(resource);
 
 const router = new VueRouter({
   // mode: 'history',
-  routes,
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  }
+  routes
 })
 
 //配置全局钩子用来拦截非登录状态下的路由跳转
